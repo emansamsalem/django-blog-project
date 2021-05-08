@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -9,7 +10,7 @@ CATEGORY_CHOICES = (
 class Post(models.Model):
     title = models.CharField(max_length=50, unique= True)
     content = models.TextField(max_length=10000)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(default=timezone.now)
 
 
     published = models.BooleanField(default=True)
@@ -19,7 +20,7 @@ class Post(models.Model):
 
     Category = models.CharField(choices= CATEGORY_CHOICES, max_length=50)
 
-
+# tostring function
     def __str__(self):
         return self.title
 
