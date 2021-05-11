@@ -20,7 +20,7 @@ class Post(models.Model):
 
     Category = models.CharField(choices= CATEGORY_CHOICES, max_length=50)
 
-# tostring function
+# tostring function it is an instance method
     def __str__(self):
         return self.title
 
